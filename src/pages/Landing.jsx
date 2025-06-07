@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Routes, Route } from "react-router-dom";
 import {
   Bars3Icon,
   XMarkIcon,
   UserCircleIcon,
   ArrowLeftOnRectangleIcon,
   Cog6ToothIcon,
+  ChartBarIcon,
+  DocumentTextIcon,
+  ClockIcon,
+  EyeIcon,
+  ArchiveBoxIcon,
 } from "@heroicons/react/24/outline";
+
+// ... (keep all your existing component definitions)
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -39,8 +46,8 @@ const Landing = () => {
                 )}
               </button>
               <div className="ml-4 flex items-center">
-                <span className="text-xl font-semibold text-indigo-600">
-                  Dashboard
+                <span className="text-xl font-semibold text-[#FA8630]">
+                  Security Portal
                 </span>
               </div>
             </div>
@@ -110,56 +117,53 @@ const Landing = () => {
           } fixed h-full w-64 bg-white shadow-md transition-transform duration-300 ease-in-out z-10`}
         >
           <div className="p-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-800">Navigation</h2>
+            <h2 className="text-lg font-semibold text-gray-800">Menu</h2>
           </div>
           <nav className="p-4">
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md"
+                  onClick={() => navigate("/dashboardreport")}
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-[#FA8630]/10 hover:text-[#FA8630] rounded-md cursor-pointer"
                 >
+                  <ChartBarIcon className="h-5 w-5 mr-3" />
                   Dashboard
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md"
+                  onClick={() => navigate("/incidentmonitoring")}
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-[#FA8630]/10 hover:text-[#FA8630] rounded-md cursor-pointer"
                 >
-                  Projects
+                  <EyeIcon className="h-5 w-5 mr-3" />
+                  Incident Monitoring
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md"
+                  onClick={() => navigate("/incidentreport")}
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-[#FA8630]/10 hover:text-[#FA8630] rounded-md cursor-pointer"
                 >
-                  Team
+                  <DocumentTextIcon className="h-5 w-5 mr-3" />
+                  Incident report
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md"
+                  onClick={() => navigate("/patrolschedule")}
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-[#FA8630]/10 hover:text-[#FA8630] rounded-md cursor-pointer"
                 >
-                  Calendar
+                  <ClockIcon className="h-5 w-5 mr-3" />
+                  Patrol Schedule
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md"
+                  onClick={() => navigate("/historyreport")}
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-[#FA8630]/10 hover:text-[#FA8630] rounded-md cursor-pointer"
                 >
-                  Documents
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md"
-                >
-                  Reports
+                  <ArchiveBoxIcon className="h-5 w-5 mr-3" />
+                  History
                 </a>
               </li>
             </ul>
@@ -172,14 +176,7 @@ const Landing = () => {
             isDrawerOpen ? "ml-64" : "ml-0"
           } transition-all duration-300`}
         >
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white p-8 rounded-xl shadow-md max-w-md w-full">
-              <h1 className="text-2xl font-bold text-indigo-600 mb-4">
-                Welcome to your Dashboard!
-              </h1>
-              <p className="text-gray-600">You've successfully logged in.</p>
-            </div>
-          </div>
+      
         </div>
       </div>
     </div>
