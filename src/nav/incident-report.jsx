@@ -20,6 +20,8 @@ import {
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import NavHeader from '../component/NavHeader';
+
 
 // Fix for default marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -45,6 +47,7 @@ function MapClickHandler({ onClick }) {
     click: onClick,
   });
   return null;
+  
 }
 
 // Component to reset map center
@@ -374,7 +377,8 @@ const IncidentMonitoring = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold mb-6 text-[#FD7E14]">Incident Reports</h1>
+      <NavHeader title="Incident Report Management" />
+      <h1 className="text-3xl font-bold mb-6 text-[#FD7E14]"></h1>
 
       <div className="bg-white shadow rounded-lg p-6">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
